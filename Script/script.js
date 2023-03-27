@@ -1,4 +1,4 @@
-
+//function to toggle side panel
 function togglePanel(){
     console.log("button clicked");
 
@@ -6,10 +6,12 @@ function togglePanel(){
     $("#form").toggle();
 }
 
+//function to save task
 function saveTask(){
     console.log("task saved");
 }
 
+//function to toggle bookmark icon
 function toggleImportant(){
     const nonImpClasses = "fa-regular fa-bookmark notImp";
     const impClasses = "fa-solid fa-bookmark imp";
@@ -20,7 +22,7 @@ function toggleImportant(){
 }
 
 
-
+//init function
 function init(){
     console.log("This is the Task Manager site.");
 
