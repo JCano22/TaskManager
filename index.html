@@ -25,36 +25,40 @@
     <main>
       <section id="list">
         <h3>Your tasks</h3>
-        <button class="btn btn-dark" id="btnShowPanel">
+        <button class="btn btn-dark btn-details" id="btnShowPanel">
           Show/Hide Sidebar
         </button>
+
+        <div id="pendingTasks">
+          <!-- tasks will be rendered here -->
+        </div>
       </section>
 
       <section id="form">
         <h3 class="card-header">Task Info</h3>
-        <div class="form card">
-          <div class="mb-3">
+        <div class="">
+          <div class="mb-2">
             <i id="iImportant" class="fa-regular fa-bookmark notImp"></i>
           </div>
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="exampleFormControlInput1" class="form-label"
-              >Task Title</label
+              >Title</label
             >
             <input type="text" class="form-control" id="txtTask" />
           </div>
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="exampleFormControlTextarea1" class="form-label"
               >Description</label
             >
             <textarea class="form-control" id="txtDescript" rows="3"></textarea>
           </div>
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="exampleFormControlInput1" class="form-label"
               >Due Date</label
             >
-            <input type="date" class="form-control" id="txtDue" />
+            <input type="date" class="form-control" id="selDue" />
           </div>
-          <div class="mb-3">
+          <div class="mb-2">
             <label for="exampleFormControlInput1" class="form-label"
               >Duration</label
             >
@@ -69,7 +73,7 @@
             <label for="exampleFormControlInput1" class="form-label"
               >Status</label
             >
-            <select class="form-select" id="txtStatus">
+            <select class="form-select" id="selStatus">
               <option>Pending</option>
               <option>Active</option>
               <option>Completed</option>
@@ -100,5 +104,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./Script/script.js"></script>
+    <script src="./Script/task.js"></script>
   </body>
 </html>
