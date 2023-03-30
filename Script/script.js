@@ -3,7 +3,6 @@ var isImportant = false;
 //function to toggle side panel
 function togglePanel(){
     console.log("button clicked");
-
     //hide the section/element
     $("#form").toggle();
 }
@@ -23,7 +22,7 @@ function saveTask(){
 
     console.log(task);
     displayTask(task);
-    
+    clearForm();
 }
 
 //function to display inputed tasks
@@ -44,7 +43,14 @@ function displayTask(task){
         </div>`
 
     $("#pendingTasks").append(syntax);
+}
 
+//function to clear form after submission
+function clearForm(){
+    $('input').val("");
+    $('select').val("");
+    $('textarea').val("");
+    $("#iImportant").removeClass("imp").addClass("notImp");
 }
 
 

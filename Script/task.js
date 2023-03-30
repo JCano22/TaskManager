@@ -1,3 +1,4 @@
+let taskId = 0;
 class Task{
     constructor(title, important, descript, due, duration, status, color){
         this.title = title;

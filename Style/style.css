@@ -1,3 +1,4 @@
+/*  Global*/
 *{
     padding: 0;
     margin: 0;
@@ -6,56 +7,39 @@ body{
     background: linear-gradient(to right, #267871, #136a8a);
     color:aliceblue;
 }
+
 /*Header*/
 h1{
     text-align: center;
     font-weight: bold;
-    padding: 20px;
+    padding: 10px;
     background-color: #333;
     margin: 0;
     
 }
+
 /*main*/
 main{
     display: flex;
-    min-height: calc(100vh - 92px);
+    min-height: calc(100vh - 91px);
     background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80");
     background-size: cover;
+    margin-bottom: 0;
+}
+h3{
+    text-align: center;
+    font-weight: 400;
+    text-shadow: 2px 1px black;
 }
 #list{
-    min-height: 60px;
     flex: 2;
     position: relative;
-}
-#list h3{
-    text-align: center;
-    
 }
 .btn-details{
     position: absolute;
     top: 5px;
     right: 10px;
 }
-
-#form{
-    background-color: #a9a9a9;
-    min-height: 60px;
-    flex: 1;
-    padding: 5px 40px;
-
-    
-}
-.notImp{
-    font-size: 36px;
-    font-weight: 200;
-    cursor: pointer;
-}
-.imp{
-    font-size: 36px;
-    cursor: pointer;
-    
-}
-
 
 /*tasks*/
 #pendingTasks{
@@ -67,6 +51,8 @@ main{
     margin: 10px 0;
     align-items: center;
     border-radius: 5px;
+    background-color: #959494;
+    opacity: .9;
 }
 .task .info{
     flex: 5;
@@ -84,4 +70,26 @@ main{
 .task .dates{
     flex: 1;
 }
+
+/*Form*/
+#form{
+    background-color: #959494;
+    opacity: .9;
+    min-height: 60px;
+    flex: 1;
+    padding: 5px 40px;
+}
+.notImp{
+    font-size: 36px;
+    font-weight: 200;
+    cursor: pointer;
+}
+.imp{
+    font-size: 36px;
+    cursor: pointer;
+    
+}
+
+
+
 
