@@ -1,4 +1,6 @@
 var isImportant = false;
+const serverUrl = "http://fsdiapi.azurewebsites.net/";
+
 
 //function to toggle side panel
 function togglePanel(){
@@ -17,12 +19,34 @@ function saveTask(){
     const duration = $("#txtDuration").val();
     const status = $("#selStatus").val();
     const color = $("#txtColor").val();
+    const budget =$("#txtBudget").val();
 
-    let task = new Task(title, isImportant, descript, due, duration, status, color);
+    let task = new Task(title, isImportant, descript, due, duration, status, color, budget);
 
-    console.log(task);
-    displayTask(task);
-    clearForm();
+    //send obj to the server
+    $.ajax({
+        type:"POST",
+        url: serverUrl + "api/tasks/",
+        data: JSON.stringify(task),
+        contentType: "application/json",
+        success: function(res){
+            console.log("Save Worked", res);
+            displayTask(task);
+            clearForm();
+        },
+        error: function(error){
+            console.log("Save failed", error);
+            alert("Unexpected Error, task was not saved :(");
+        }
+    })
+    
+}//end saveTask function
+
+//formatting date
+function formatDate(date){
+    console.log(date);
+    let trueDate = new Date(date); //parse date string to date obj
+    return trueDate.toLocaleDateString();
 }
 
 //function to display inputed tasks
@@ -37,8 +61,11 @@ function displayTask(task){
             <label>${task.status}</label>
 
             <div class="dates">
-            <label>${task.due}</label>
+            <label>${formatDate(task.due)}</label>
             <label>${task.duration} days</label>
+            </div>
+            <div class="budget">
+            <label>$${task.budget || "0.00"} dollars</label>
             </div>
         </div>`
 
@@ -69,11 +96,36 @@ function toggleImportant(){
     }
 }
 
+function fetchTasks(){
+    //retrieve all the tasks from the server
+    $.ajax({
+        url: serverUrl + "api/tasks/",
+        type: "GET", //casing doesn't matter, stndrd is to capitalize
+        success: function(response){
+            const list = JSON.parse(response);
+            console.log(list);
+
+            for(let i = 0; i < list.length; i++){
+                let record = list[i];
+                if(record.name === "Jorge"){
+                    displayTask(record);
+                }
+            }
+        },
+        error: function(error){
+            console.log("Error", error);
+        }
+    });
+}
 
 //init function
 function init(){
     console.log("This is the Task Manager site.");
 
+    //retrieve data
+    fetchTasks();
+
+    //hook events
     $("#btnShowPanel").click(togglePanel);
     $("#saveBtn").click(saveTask);
     $("#iImportant").click(toggleImportant);
