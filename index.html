@@ -26,6 +26,9 @@
     <main>
       <section id="list">
         <h3>Your tasks</h3>
+        <button class="btn btn-dark btn-delete" id="btnDeleteAll">
+          Delete All
+        </button>
         <button class="btn btn-dark btn-details" id="btnShowPanel">
           Show/Hide Sidebar
         </button>
@@ -37,7 +40,17 @@
 
       <section id="form">
         <h3 class="card-header">Task Info</h3>
-        <div class="">
+        <div class="form">
+          <!-- Success panel -->
+          <div id="pnlSuccess" class="alert alert-success hide" role="alert">
+            Task saved successfully.
+          </div>
+
+          <!-- Error panel -->
+          <div id="pnlError" class="alert alert-danger hide" role="alert">
+            Task not saved. Check your inputs.
+          </div>
+
           <div class="mb-2">
             <i id="iImportant" class="fa-regular fa-bookmark notImp"></i>
           </div>
